@@ -1,0 +1,95 @@
+<html>
+<head>
+<link crossorigin='anonymous' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T' rel='stylesheet'>
+<link href='css/index.css' rel='stylesheet'>
+<script crossorigin='anonymous' integrity='sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo' src='https://code.jquery.com/jquery-3.3.1.slim.min.js'></script>
+<script crossorigin='anonymous' integrity='sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1' src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js'></script>
+<script crossorigin='anonymous' integrity='sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM' src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js'></script>
+<script src='js/exercisemanager.js'></script>
+<script src='js/daymanager.js'></script>
+<script src='js/main.js'></script>
+<meta charset='utf-8'>
+<title>Exercitium</title>
+</head>
+<body>
+<main class='my-2'>
+<div class='container'>
+<div class='jumbotron text-center'>
+<h1 class='display-4'>Exercitium</h1>
+<hr class='my-4'>
+<p>
+Welcome to Exercitium, your virtual workout manager which allows you to track your daily workouts.
+</p>
+<p>
+You can change day by clicking on the day's name, and you can add as many exercises as you like. They will be saved between sessions.
+</p>
+<button class='btn btn-primary' data-target='#addExerciseModal' data-toggle='modal' id='addExerciseBtn'>Add Exercise</button>
+</div>
+<ul class='nav nav-pills' id='dayChooserList'>
+<li class='nav-item'>
+<a class='nav-link' href='#monday'>Monday</a>
+</li>
+<li class='nav-item'>
+<a class='nav-link' href='#tuesday'>Tuesday</a>
+</li>
+<li class='nav-item'>
+<a class='nav-link' href='#wednesday'>Wednesday</a>
+</li>
+<li class='nav-item'>
+<a class='nav-link' href='#thursday'>Thursday</a>
+</li>
+<li class='nav-item'>
+<a class='nav-link' href='#friday'>Friday</a>
+</li>
+<li class='nav-item'>
+<a class='nav-link' href='#saturday'>Saturday</a>
+</li>
+<li class='nav-item'>
+<a class='nav-link' href='#sunday'>Sunday</a>
+</li>
+</ul>
+<div class='exercises'></div>
+</div>
+</main>
+<div class='modal bg-light' data-backdrop='static' id='addExerciseModal' role='dialog' tabIndex='-1'>
+<div class='modal-dialog modal-dialog-centered' role='document'>
+<div class='modal-content'>
+<div class='modal-header'>
+<h5 class='modal-title'>Add exercise</h5>
+<button aria-label='Close' class='close' data-dismiss='modal'>
+<span aria-hidden='true'>&times;</span>
+</button>
+</div>
+<div class='modal-body'>
+<form autocomplete='off' id='addExerciseModalForm'>
+<div class='input-group my-1'>
+<div class='input-group-prepend'>
+<span class='input-group-text'>Name</span>
+</div>
+<input class='form-control' name='name' type='text'>
+</div>
+<div class='input-group my-1'>
+<div class='input-group-prepend'>
+<span class='input-group-text'>Repetitions</span>
+</div>
+<input class='form-control' min='1' name='repetitions' type='number'>
+</div>
+<div class='input-group my-1'>
+<div class='input-group-prepend'>
+<span class='input-group-text'>Sets</span>
+</div>
+<input class='form-control' min='1' name='sets' type='number'>
+</div>
+</form>
+</div>
+<div class='modal-footer'>
+<div class='btn-group'>
+<button class='btn btn-outline-danger' data-dismiss='modal'>Cancel</button>
+<button class='btn btn-outline-success' id='addExerciseModalConfirmBtn'>Confirm</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
