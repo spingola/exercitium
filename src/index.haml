@@ -1,0 +1,89 @@
+%html
+    %head
+        %link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous")
+        %link(rel="stylesheet" href="css/index.css")
+
+        %script(src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous")
+        %script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous")
+        %script(src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous")
+
+        %script(src="js/exercisemanager.js")
+        %script(src="js/daymanager.js")
+        %script(src="js/main.js")
+
+        %meta(charset="utf-8")
+
+        %title Exercitium
+    %body
+        %main.my-2
+            .container
+                .jumbotron.text-center
+                    %h1.display-4 Exercitium
+
+                    %hr.my-4
+
+                    %p
+                        Welcome to Exercitium, your virtual workout manager which allows you to track your daily workouts.
+
+                    %p
+                        You can change day by clicking on the day's name, and you can add as many exercises as you like. They will be saved between sessions.
+
+                    %button.btn.btn-primary#addExerciseBtn{data: {toggle: "modal", target: "#addExerciseModal"}} Add Exercise
+
+                %ul.nav.nav-pills#dayChooserList
+                    %li.nav-item
+                        %a.nav-link(href="#monday") Monday
+
+                    %li.nav-item
+                        %a.nav-link(href="#tuesday") Tuesday
+
+                    %li.nav-item
+                        %a.nav-link(href="#wednesday") Wednesday
+
+                    %li.nav-item
+                        %a.nav-link(href="#thursday") Thursday
+
+                    %li.nav-item
+                        %a.nav-link(href="#friday") Friday
+
+                    %li.nav-item
+                        %a.nav-link(href="#saturday") Saturday
+
+                    %li.nav-item
+                        %a.nav-link(href="#sunday") Sunday
+
+                .exercises
+
+        .modal.bg-light#addExerciseModal{tabIndex: "-1", role: "dialog", data: {backdrop: "static"}}
+            .modal-dialog.modal-dialog-centered(role="document")
+                .modal-content
+                    .modal-header
+                        %h5.modal-title Add exercise
+
+                        %button.close{data: {dismiss: "modal"}, aria: {label: "Close"}}
+                            %span(aria-hidden="true") &times;
+
+                    .modal-body
+                        %form#addExerciseModalForm(autocomplete="off")
+                            .input-group.my-1
+                                .input-group-prepend
+                                    %span.input-group-text Name
+
+                                %input.form-control(name="name" type="text")
+
+                            .input-group.my-1
+                                .input-group-prepend
+                                    %span.input-group-text Repetitions
+
+                                %input.form-control(name="repetitions" type="number" min="1")
+
+                            .input-group.my-1
+                                .input-group-prepend
+                                    %span.input-group-text Sets
+
+                                %input.form-control(name="sets" type="number" min="1")
+
+                    .modal-footer
+                        .btn-group
+                            %button.btn.btn-outline-danger{data: {dismiss: "modal"}} Cancel
+                            %button.btn.btn-outline-success#addExerciseModalConfirmBtn Confirm
