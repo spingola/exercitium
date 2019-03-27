@@ -1,4 +1,7 @@
-// TODO: Add RestManager
+/* jshint esversion: 9, browser: true */
+
+import { DayManager } from "./daymanager.js";
+import { ExerciseManager } from "./exercisemanager.js";
 
 $(function() {
     "use strict";
@@ -34,6 +37,5 @@ $(function() {
         DayManager.loadDay($this.find(".nav-link").attr("href"));
     });
 
-    // TODO: Automatically choose the actual day of the week
-    $("#dayChooserList .nav-item").first().click();
+    DayManager.loadToday();
 });
