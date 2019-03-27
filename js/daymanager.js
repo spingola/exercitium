@@ -25,7 +25,7 @@ export const DayManager = {
     },
 
     loadToday() {
-        const idx = new Date().getDay() - 1;
+        const idx = new Date().getDay();
         $($("#dayChooserList .nav-item .nav-link").get(idx === 0 ? 6 : idx - 1)).click();
     },
 };
