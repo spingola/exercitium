@@ -1,6 +1,11 @@
+/* jshint esversion: 9, browser: true, module: true */
+/* globals $ */
+
 "use strict";
 
-const ExerciseManager = {
+import { DayManager } from "./daymanager.js";
+
+export const ExerciseManager = {
     exercises: [],
 
     marshal() {
@@ -31,11 +36,6 @@ const ExerciseManager = {
     // XXX: Surely there must be a terser way to do this.
     _renderExercise(exercise) {
         const element = (name, klass, children, attrs) => {
-            console.assert(typeof name === "string");
-            console.assert(typeof klass === "string");
-            if (children) console.assert(Array.isArray(children));
-            if (attrs) console.assert(!Array.isArray(attrs));
-
             const el = $(`<${name}>`);
             el.addClass(klass);
             (children || []).forEach(child => el.append(child));

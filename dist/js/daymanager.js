@@ -1,6 +1,11 @@
+/* jshint esversion: 9, browser: true, module: true */
+/* globals $, ExerciseManager */
+
 "use strict";
 
-const DayManager = {
+import { ExerciseManager } from "./exercisemanager.js";
+
+export const DayManager = {
     day: null,
 
     save() {
@@ -17,5 +22,10 @@ const DayManager = {
             .renderExercises();
 
         return this;
+    },
+
+    loadToday() {
+        const idx = new Date().getDay() - 1;
+        $($("#dayChooserList .nav-item .nav-link").get(idx === 0 ? 6 : idx - 1)).click();
     },
 };
